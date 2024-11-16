@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Accueil | [Nom de l'Entreprise]</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">MyBrand</a>
+            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="pages/services.html">Nos Services</a></li>
+                <li><a href="pages/portfolio.html">Portfolio</a></li>
+                <li><a href="pages/about.html">À propos</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+
+    <!-- Hero Section -->
+    <section class="hero section">
+        <div class="hero-content">
+            <h1>Bienvenue chez [Nom de l'Entreprise]</h1>
+            <p>Experts en construction de bâtiments et aménagements extérieurs.</p>
+            <div class="hero-buttons">
+                <a href="pages/contact.html" class="button">Demander un devis</a>
+                <a href="pages/portfolio.html" class="button">Voir nos réalisations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section">
+        <h2>Nos Services</h2>
+        <div class="service-item">
+            <h3>Construction de bâtiments</h3>
+            <p>Construction de maisons, appartements, immeubles et plus.</p>
+            <a href="services.html#construction" class="button">En savoir plus</a>
+        </div>
+        <div class="service-item">
+            <h3>Rénovation</h3>
+            <p>Rénovation complète ou partielle de vos espaces.</p>
+            <a href="services.html#renovation" class="button">En savoir plus</a>
+        </div>
+        <div class="service-item">
+            <h3>Aménagement extérieur</h3>
+            <p>Création d'aménagements paysagers et extérieurs.</p>
+            <a href="services.html#amenagement" class="button">En savoir plus</a>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio section">
+        <h2>Nos Réalisations</h2>
+        <div class="project-gallery">
+            <div class="project">
+                <img src="img//R1.jpg" alt="Projet 1">
+                <p>Chantier de rénovation à [lieu]</p>
+            </div>
+            <div class="project">
+                <img src="img/R2.jpg" alt="Projet 2">
+                <p>Construction de maisons à [lieu]</p>
+            </div>
+            <div class="project">
+                <img src="img/R3.jpg" alt="Projet 3">
+                <p>Aménagement paysager à [lieu]</p>
+            </div>
+        </div>
+        <a href="portfolio.html" class="button">Voir plus</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2>Notre Histoire</h2>
+        <p>[Nom de l'Entreprise] est une entreprise familiale, créée en [année], spécialisée dans la construction et la rénovation de bâtiments. Nous mettons un point d'honneur à respecter les délais et la qualité de nos projets.</p>
+        <a href="pages/about.html" class="button">En savoir plus</a>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section">
+        <h2>Avis de nos clients</h2>
+        <blockquote>
+            <p>"L'équipe de [Nom de l'Entreprise] a réalisé notre projet de rénovation à la perfection. Ils ont été professionnels et à l'écoute."</p>
+            <footer>- Client Satisfait</footer>
+        </blockquote>
+        <a href="pages/testimonials.html" class="button">Voir plus d'avis</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section">
+        <h2>Contactez-nous</h2>
+        <p>Pour toute demande de devis ou information, contactez-nous :</p>
+        <form action="submit_form.php" method="POST">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" placeholder="Votre message" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 [Nom de l'Entreprise] | Tous droits réservés</p>
+        <ul>
+            <li><a href="pages/legal.html">Mentions légales</a></li>
+            <li><a href="pages/privacy.html">Politique de confidentialité</a></li>
+            <li><a href="https://facebook.com/[NomEntreprise]" target="_blank">Facebook</a></li>
+            <li><a href="https://linkedin.com/company/[NomEntreprise]" target="_blank">LinkedIn</a></li>
+        </ul>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,630 @@
+/* ========================
+   RESET & GLOBAL STYLES
+   ======================== */
+
+/* Suppression des marges et paddings par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif; /* Police de base */
+    color: #333; /* Couleur de texte principale */
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Fond clair pour une lecture agréable */
+}
+
+/* ========================
+   TYPOGRAPHIE
+   ======================== */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif; /* Police pour les titres */
+    font-weight: 600;
+    color: #2c3e50; /* Gris foncé pour les titres */
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ========================
+   COULEURS
+   ======================== */
+
+:root {
+    --couleur-primaire : #FFD700;
+    --gris-clair: #bdc3c7; /* Gris clair pour les éléments secondaires */
+    --rouge-accent: #e74c3c; /* Rouge pour les boutons et éléments importants */
+    --blanc: #ffffff; /* Blanc pour les fonds et zones de texte */
+    --gris-fond: #ecf0f1; /* Fond général clair */
+    --gris-texte: #7f8c8d; /* Gris pour les textes secondaires */
+    --gris-fonce: #2c3e50; /* Gris foncé pour les titres */
+    --rouge-accents: #e74c3c; /* Rouge pour des alertes ou des éléments très importants */
+}
+/* ========================
+   STYLE DES ELEMENTS GLOBAUX
+   ======================== */
+
+a {
+    color: var(--rouge-accent); /* Liens en rouge */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.active{
+    text-decoration: underline;
+    color: var(--couleur-primaire);
+}
+body {
+    padding-top: 70px; /* Ajoute un espace pour ne pas que le contenu se cache sous la navbar */
+}
+
+/* ========================
+   STYLES RESPONSIVE
+   ======================== */
+
+/* ========================
+   STYLE DU LOGO
+   ======================== */
+   .logo {
+    font-family: 'Montserrat', sans-serif; /* Police élégante */
+    font-size: 1.8rem; /* Taille du logo */
+    font-weight: bold; /* Mise en valeur */
+    color: var(--blanc); /* Blanc pour contraste */
+    text-transform: uppercase; /* Tout en majuscules */
+    letter-spacing: 2px; /* Espacement entre les lettres */
+    transition: color 0.3s ease-in-out; /* Transition pour effet hover */
+}
+
+.logo:hover {
+    color: var(--couleur-primaire); /* Couleur primaire au survol */
+}
+
+/* ========================
+   RESPONSIVE NAVIGATION
+   ======================== */
+nav {
+    display: flex;
+    justify-content: space-between; /* Sépare le logo et les liens */
+    align-items: center; /* Centre verticalement */
+    padding: 0 20px; /* Espacement latéral */
+}
+
+.nav-links {
+    display: flex; /* Alignement horizontal des liens */
+    align-items: center;
+    gap: 20px; /* Espacement entre les liens */
+    transition: transform 0.3s ease-in-out;
+}
+.menu-toggle{
+    display: none;
+}
+
+@media (max-width: 962px){
+    .nav-links a{
+        font-size: .8rem;
+    }
+}
+@media (max-width: 870px) {
+    .logo {
+        font-size: 1.5rem; /* Taille réduite sur mobile */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Alignement vertical des liens */
+        background-color: #B22222; /* Même couleur que le header */
+        position: absolute;
+        top: 100%; /* Juste en dessous de la navbar */
+        left: 0;
+        right: 0;
+        padding: 20px 0; /* Espacement interne */
+        transform: translateY(-200%);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        transform: translateY(0); /* Affiche le menu */
+    }
+
+    .menu-toggle {
+        display: block; /* Bouton de menu visible sur mobile */
+        font-size: 24px;
+        color: var(--blanc);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem; /* Réduction supplémentaire pour petits écrans */
+    }
+
+    nav {
+        padding: 0 10px; /* Réduction de l’espacement latéral */
+    }
+
+    .menu-toggle {
+        font-size: 22px; /* Ajuste la taille du bouton */
+    }
+}
+
+/* ==========================
+   Animations et Transitions
+   ========================== */
+
+/* Animation de la navbar au chargement */
+header {
+    animation: slideInFromTop 0.8s ease-out;
+}
+
+/* Animation d'apparition pour les sections */
+/* Sections invisibles au départ */
+.section {
+    opacity: 0; /* Invisible */
+    transform: translateY(50px); /* Décalée vers le bas */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Animation fluide */
+}
+
+/* Sections visibles */
+.section.visible {
+    opacity: 1; /* Complètement visible */
+    transform: translateY(0); /* Position normale */
+}
+/* Animation pour le menu burger */
+.menu-toggle {
+    transition: transform 0.4s ease;
+}
+
+.menu-toggle:hover {
+    transform: rotate(90deg); /* Rotation légère pour attirer l'attention */
+}
+
+/* Animation des liens du menu */
+nav ul li a {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--couleur-primaire);
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* Soulignement animé sur hover */
+}
+
+/* Keyframes pour les animations */
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Header */
+header {
+    background-color: #B22222; /* Rouge */
+    padding: 20px 0;
+    position: fixed;  /* Fixe la navbar en haut de la page */
+    top: 0;           /* Positionne le header en haut */
+    left: 0;          /* Aligne le header à gauche */
+    right: 0;         /* Aligne le header à droite */
+    z-index: 1000;    /* Assure que la navbar soit au-dessus des autres éléments */
+    width: 100%;      /* Prend toute la largeur de l'écran */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre sous la navbar pour plus de lisibilité */
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    margin-top: 0; /* Évite que le menu chevauche le contenu */
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: var(--blanc);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--couleur-primaire); /* Jaune pour l'effet hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Section À propos */
+.about {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+/* En-tête */
+.about-header {
+    text-align: center;
+    margin-bottom: 50px;
+    background-image: url('../img/about.jpg'); /* Ajout d'une image de fond */
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    color: #fff; /* Texte en blanc pour contraster avec l'image */
+}
+
+.about-header h1 {
+    background: rgba(15, 10, 10, 0.4);
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--couleur-primaire);
+    font-weight: 800;
+}
+
+.about-header p {
+    font-size: 18px;
+    background: rgba(15, 10, 10, 0.4);
+}
+
+/* Notre Histoire */
+.about-history {
+    padding: 20px ;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-around; /* Espacement égal entre les éléments */
+    align-items: center;
+    gap: 2rem;
+}
+
+.about-history h2 {
+    font-size: 32px;
+    color: #B22222; /* Rouge */
+    margin-bottom: 20px;
+}
+
+.history-image img {
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Nos Valeurs */
+.about-values {
+    margin-bottom: 50px;
+    background: var(--gris-texte);
+}
+
+.about-values h2 {
+    font-size: 32px;
+    color: var(--couleur-primaire); /* Rouge */
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.values-list {
+    display: flex;
+    justify-content: space-around; /* Espacement égal entre les éléments */
+    gap: 30px;
+}
+
+.value-item {
+    width: 30%;
+    text-align: center;
+}
+
+.value-item strong {
+    font-size: 18px;
+    color: var(--couleur-primaire);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.value-item p {
+    font-size: 16px;
+    color: var(--blanc);
+}
+
+/* Notre équipe */
+.about-team {
+    margin-bottom: 50px;
+}
+
+.about-team h2 {
+    font-size: 32px;
+    color: #B22222;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Trois colonnes égales */
+    gap: 30px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    height: 50vh;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 22px;
+    color: #B22222;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Vidéo d'Entreprise */
+.about-video {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.about-video h2 {
+    font-size: 32px;
+    color: #B22222; /* Rouge */
+    margin-bottom: 20px;
+}
+
+.video-container iframe {
+    width: 80%;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Clients */
+.about-clients {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.about-clients h2 {
+    font-size: 32px;
+    color: #B22222; /* Rouge */
+    margin-bottom: 20px;
+}
+
+.clients-logos {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.logo-container {
+    width: 150px;
+    height: 100px;
+    transition: opacity 0.3s ease;
+}
+
+.clients-logos img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.clients-logos img:hover {
+    opacity: 1;
+}
+
+@keyframes scrollClients {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.clients-logos {
+    animation: scrollClients 20s linear infinite;
+}
+
+
+/* Responsivité */
+
+@media (max-width: 768px) {
+    /* En-tête */
+    .about-header h1 {
+        font-size: 28px;
+    }
+
+    .about-header p {
+        font-size: 16px;
+    }
+
+    /* Notre Histoire */
+    .about-history {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .history-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Nos Valeurs */
+    .values-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .value-item {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    /* Notre équipe */
+    .team-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
+    }
+
+    .team-member img {
+        height: 40vh;
+    }
+
+    /* Vidéo d'Entreprise */
+    .video-container iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+
+}
+
+/* Animations */
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajoutez l'animation fadeInUp aux sections */
+.about-header,
+.about-history,
+.about-values,
+.about-team,
+.about-video,
+.about-clients {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes scrollClients {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.clients-logos {
+    animation: scrollClients 20s linear infinite;
+}
+
+/* Animation des logos au survol */
+.logo-container:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+footer ul li a:hover {
+    color: #FFD700;
+}

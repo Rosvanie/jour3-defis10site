@@ -1,0 +1,604 @@
+/* ========================
+   RESET & GLOBAL STYLES
+   ======================== */
+
+/* Suppression des marges et paddings par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif; /* Police de base */
+    color: #333; /* Couleur de texte principale */
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Fond clair pour une lecture agréable */
+}
+
+/* ========================
+   TYPOGRAPHIE
+   ======================== */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif; /* Police pour les titres */
+    font-weight: 600;
+    color: #2c3e50; /* Gris foncé pour les titres */
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ========================
+   COULEURS
+   ======================== */
+
+:root {
+    --couleur-primaire : #FFD700;
+    --gris-clair: #bdc3c7; /* Gris clair pour les éléments secondaires */
+    --rouge-accent: #e74c3c; /* Rouge pour les boutons et éléments importants */
+    --blanc: #ffffff; /* Blanc pour les fonds et zones de texte */
+    --gris-fond: #ecf0f1; /* Fond général clair */
+    --gris-texte: #7f8c8d; /* Gris pour les textes secondaires */
+    --gris-fonce: #2c3e50; /* Gris foncé pour les titres */
+    --rouge-accents: #e74c3c; /* Rouge pour des alertes ou des éléments très importants */
+}
+/* ========================
+   STYLE DES ELEMENTS GLOBAUX
+   ======================== */
+
+a {
+    color: var(--rouge-accent); /* Liens en rouge */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.active{
+    text-decoration: underline;
+    color: var(--couleur-primaire);
+}
+body {
+    padding-top: 70px; /* Ajoute un espace pour ne pas que le contenu se cache sous la navbar */
+}
+
+/* ========================
+   STYLES RESPONSIVE
+   ======================== */
+
+/* ========================
+   STYLE DU LOGO
+   ======================== */
+   .logo {
+    font-family: 'Montserrat', sans-serif; /* Police élégante */
+    font-size: 1.8rem; /* Taille du logo */
+    font-weight: bold; /* Mise en valeur */
+    color: var(--blanc); /* Blanc pour contraste */
+    text-transform: uppercase; /* Tout en majuscules */
+    letter-spacing: 2px; /* Espacement entre les lettres */
+    transition: color 0.3s ease-in-out; /* Transition pour effet hover */
+}
+
+.logo:hover {
+    color: var(--couleur-primaire); /* Couleur primaire au survol */
+}
+
+/* ========================
+   RESPONSIVE NAVIGATION
+   ======================== */
+nav {
+    display: flex;
+    justify-content: space-between; /* Sépare le logo et les liens */
+    align-items: center; /* Centre verticalement */
+    padding: 0 20px; /* Espacement latéral */
+}
+
+.nav-links {
+    display: flex; /* Alignement horizontal des liens */
+    align-items: center;
+    gap: 20px; /* Espacement entre les liens */
+    transition: transform 0.3s ease-in-out;
+}
+.menu-toggle{
+    display: none;
+}
+
+@media (max-width: 962px){
+    .nav-links a{
+        font-size: .8rem;
+    }
+}
+@media (max-width: 870px) {
+    .logo {
+        font-size: 1.5rem; /* Taille réduite sur mobile */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Alignement vertical des liens */
+        background-color: #B22222; /* Même couleur que le header */
+        position: absolute;
+        top: 100%; /* Juste en dessous de la navbar */
+        left: 0;
+        right: 0;
+        padding: 20px 0; /* Espacement interne */
+        transform: translateY(-200%);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        transform: translateY(0); /* Affiche le menu */
+    }
+
+    .menu-toggle {
+        display: block; /* Bouton de menu visible sur mobile */
+        font-size: 24px;
+        color: var(--blanc);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem; /* Réduction supplémentaire pour petits écrans */
+    }
+
+    nav {
+        padding: 0 10px; /* Réduction de l’espacement latéral */
+    }
+
+    .menu-toggle {
+        font-size: 22px; /* Ajuste la taille du bouton */
+    }
+}
+
+/* ==========================
+   Animations et Transitions
+   ========================== */
+
+/* Animation de la navbar au chargement */
+header {
+    animation: slideInFromTop 0.8s ease-out;
+}
+
+/* Animation d'apparition pour les sections */
+/* Sections invisibles au départ */
+.section {
+    opacity: 0; /* Invisible */
+    transform: translateY(50px); /* Décalée vers le bas */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Animation fluide */
+}
+
+/* Sections visibles */
+.section.visible {
+    opacity: 1; /* Complètement visible */
+    transform: translateY(0); /* Position normale */
+}
+/* Animation pour le menu burger */
+.menu-toggle {
+    transition: transform 0.4s ease;
+}
+
+.menu-toggle:hover {
+    transform: rotate(90deg); /* Rotation légère pour attirer l'attention */
+}
+
+/* Animation des liens du menu */
+nav ul li a {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--couleur-primaire);
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* Soulignement animé sur hover */
+}
+
+/* Keyframes pour les animations */
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Header */
+header {
+    background-color: #B22222; /* Rouge */
+    padding: 20px 0;
+    position: fixed;  /* Fixe la navbar en haut de la page */
+    top: 0;           /* Positionne le header en haut */
+    left: 0;          /* Aligne le header à gauche */
+    right: 0;         /* Aligne le header à droite */
+    z-index: 1000;    /* Assure que la navbar soit au-dessus des autres éléments */
+    width: 100%;      /* Prend toute la largeur de l'écran */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre sous la navbar pour plus de lisibilité */
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    margin-top: 0; /* Évite que le menu chevauche le contenu */
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: var(--blanc);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--couleur-primaire); /* Jaune pour l'effet hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Portfolio Page */
+.portfolio {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.portfolio h2 {
+    font-size: 36px;
+    color: #B22222; /* Rouge */
+    margin-bottom: 30px;
+}
+
+.portfolio-filter {
+    margin-bottom: 30px;
+}
+
+.filter-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #B22222; /* Rouge */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #FFD700; /* Jaune */
+}
+/* Style pour les boutons du filtre */
+.filter-button.active {
+    background-color: #FFD700; /* Jaune pour l'onglet actif */
+    color: black; /* Texte noir pour l'onglet actif */
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
+    font-size: 24px;
+    color: #B22222; /* Rouge */
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    font-size: 16px;
+    color: #333;
+}
+
+.project-info a {
+    padding: 10px 20px;
+    background-color: #B22222; /* Rouge */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project-info a:hover {
+    background-color: #FFD700; /* Jaune */
+}
+
+/* Conteneur du carousel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;  /* Ajustez la taille du carousel selon vos besoins */
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Style des images du carousel */
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: auto;
+}
+
+/* Boutons de navigation */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Style du texte et des informations de projet */
+.project-info {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 2px solid #B22222;  /* Rouge */
+}
+
+.project-info h3 {
+    font-size: 24px;
+    color: #B22222;  /* Rouge */
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.project-info a {
+    background-color: #B22222;  /* Rouge */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.project-info a:hover {
+    background-color: #FFD700;  /* Jaune */
+}
+
+/* Ajout de marges et de paddings pour espacement */
+.project-card {
+    margin: 40px auto;
+    max-width: 1100px;
+}
+
+.project-image {
+    margin-bottom: 20px;
+}
+
+
+
+/* ----------------------------------- RESPONSIVITÉ ----------------------------------- */
+
+/* Pour les petits écrans (tablettes) */
+@media (max-width: 768px) {
+    .portfolio h2 {
+        font-size: 28px;  /* Réduction de la taille du titre */
+        margin-bottom: 20px;
+    }
+
+    .filter-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Colonnes plus petites */
+    }
+
+    .project-card {
+        margin: 20px auto;
+        max-width: 90%;  /* Largeur maximale plus petite */
+    }
+
+    .project-info h3 {
+        font-size: 22px;  /* Réduction de la taille du titre du projet */
+    }
+
+    .project-info p {
+        font-size: 14px;  /* Réduction de la taille du texte */
+    }
+
+    .project-info a {
+        padding: 8px 16px; /* Réduction de la taille des boutons */
+    }
+
+    .carousel {
+        max-width: 90%; /* Ajustement de la largeur du carousel */
+    }
+
+    .prev, .next {
+        font-size: 24px; /* Réduction de la taille des boutons de navigation */
+        padding: 8px;
+    }
+}
+
+/* Pour les écrans plus petits (téléphones mobiles) */
+@media (max-width: 480px) {
+    .portfolio h2 {
+        font-size: 24px;  /* Réduction du titre pour les petits écrans */
+        margin-bottom: 15px;
+    }
+
+    .filter-button {
+        font-size: 12px;
+        padding: 6px 12px;  /* Réduction de la taille des boutons */
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;  /* Affichage en une seule colonne */
+    }
+
+    .project-card {
+        margin: 15px auto;
+        max-width: 100%; /* Laisser le projet occuper toute la largeur */
+    }
+
+    .project-info h3 {
+        font-size: 20px;  /* Taille réduite du titre */
+    }
+
+    .project-info p {
+        font-size: 12px;  /* Réduction du texte */
+    }
+
+    .project-info a {
+        padding: 6px 12px;  /* Taille réduite des boutons */
+    }
+
+    .carousel {
+        max-width: 100%; /* Ajustement de la largeur du carousel */
+    }
+
+    .prev, .next {
+        font-size: 20px; /* Réduction de la taille des boutons */
+        padding: 6px;
+    }
+}
+
+
+
+
+
+
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+footer ul li a:hover {
+    color: #FFD700;
+}

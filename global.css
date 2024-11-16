@@ -1,0 +1,274 @@
+/* ========================
+   RESET & GLOBAL STYLES
+   ======================== */
+
+/* Suppression des marges et paddings par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif; /* Police de base */
+    color: #333; /* Couleur de texte principale */
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Fond clair pour une lecture agréable */
+}
+
+/* ========================
+   TYPOGRAPHIE
+   ======================== */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif; /* Police pour les titres */
+    font-weight: 600;
+    color: #2c3e50; /* Gris foncé pour les titres */
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ========================
+   COULEURS
+   ======================== */
+
+:root {
+    --bleu-fonce: #34495e; /* Couleur bleu foncé pour les titres et le texte principal */
+    --gris-clair: #bdc3c7; /* Gris clair pour les éléments secondaires */
+    --rouge-accent: #e74c3c; /* Rouge pour les boutons et éléments importants */
+    --blanc: #ffffff; /* Blanc pour les fonds et zones de texte */
+    --gris-fond: #ecf0f1; /* Fond général clair */
+    --gris-texte: #7f8c8d; /* Gris pour les textes secondaires */
+    --gris-fonce: #2c3e50; /* Gris foncé pour les titres */
+    --rouge-accents: #e74c3c; /* Rouge pour des alertes ou des éléments très importants */
+}
+
+/* ========================
+   STYLE DES ELEMENTS GLOBAUX
+   ======================== */
+
+a {
+    color: var(--rouge-accent); /* Liens en rouge */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ========================
+   HEADER
+   ======================== */
+
+header {
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+    padding: 2rem 0;
+}
+
+header nav {
+    text-align: center;
+}
+
+header nav a {
+    margin: 0 1.5rem;
+    font-size: 1.2rem;
+    color: var(--blanc);
+}
+
+header nav a:hover {
+    color: var(--rouge-accent);
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--gris-fond);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--blanc);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--blanc);
+    margin-top: 1rem;
+}
+
+.hero button {
+    background-color: var(--rouge-accent);
+    color: var(--blanc);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 2rem;
+    border-radius: 5px;
+}
+
+.hero button:hover {
+    background-color: var(--gris-clair);
+}
+
+/* ========================
+   SECTIONS
+   ======================== */
+
+section {
+    padding: 4rem 2rem;
+}
+
+.services, .portfolio, .testimonials {
+    background-color: var(--blanc);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    border-radius: 5px;
+}
+
+.services h2, .portfolio h2, .testimonials h2 {
+    font-size: 2rem;
+    color: var(--bleu-fonce);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.service-item, .project {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
+
+.service-item img, .project img {
+    width: 100%;
+    max-width: 300px;
+    margin-right: 2rem;
+    border-radius: 5px;
+}
+
+.service-item h3, .project h3 {
+    font-size: 1.5rem;
+    color: var(--bleu-fonce);
+}
+
+.service-item p, .project p {
+    font-size: 1rem;
+    color: var(--gris-texte);
+}
+
+button {
+    background-color: var(--rouge-accent);
+    color: var(--blanc);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: var(--gris-clair);
+}
+
+.testimonials blockquote {
+    font-style: italic;
+    margin-top: 2rem;
+    border-left: 4px solid var(--rouge-accent);
+    padding-left: 1rem;
+    font-size: 1.2rem;
+    color: var(--gris-texte);
+}
+
+/* ========================
+   FOOTER
+   ======================== */
+
+footer {
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer a {
+    color: var(--blanc);
+    margin: 0 1rem;
+}
+
+footer a:hover {
+    color: var(--rouge-accent);
+}
+
+/* ========================
+   FORMULAIRES
+   ======================== */
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+form input, form textarea {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+form button {
+    background-color: var(--rouge-accent);
+    color: var(--blanc);
+    padding: 1rem;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: var(--gris-clair);
+}
+
+/* ========================
+   RESPONSIVE DESIGN
+   ======================== */
+
+@media screen and (max-width: 768px) {
+    header nav a {
+        margin: 0 1rem;
+    }
+
+    .service-item, .project {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+}

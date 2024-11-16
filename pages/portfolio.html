@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Accueil | [Nom de l'Entreprise]</title>
+    <link rel="stylesheet" href="../css/portfolio.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">MyBrand</a>
+            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="services.html">Nos Services</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Portfolio Section -->
+<section class="portfolio">
+    <h2>Nos Projets</h2>
+
+    <!-- Filter Buttons -->
+    <div class="portfolio-filter">
+        <button class="filter-button" data-category="all" onclick="filterProjects('all')">Tous</button>
+        <button class="filter-button" data-category="construction" onclick="filterProjects('construction')">Construction</button>
+        <button class="filter-button" data-category="renovation" onclick="filterProjects('renovation')">Rénovation</button>
+        <button class="filter-button" data-category="design" onclick="filterProjects('design')">Design</button>
+    </div>
+
+
+    <!-- Project Grid -->
+    <div class="project-grid">
+        <!-- Project 1 -->
+        <div class="project-card construction">
+            <div class="project-image">
+                <img src="../img/P1.jpg" alt="Projet 1">
+            </div>
+            <div class="project-info">
+                <h3>Construction de Bâtiment</h3>
+                <p>Une nouvelle construction résidentielle avec des matériaux modernes et écologiques.</p>
+                <a href="#">Voir plus</a>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card renovation">
+            <div class="project-image">
+                <img src="../img/P2.jpg" alt="Projet 2">
+            </div>
+            <div class="project-info">
+                <h3>Rénovation de Bureau</h3>
+                <p>Réaménagement complet d'un espace de travail pour une entreprise de la tech.</p>
+                <a href="#">Voir plus</a>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card design">
+            <div class="project-image">
+                <img src="../img/P3.jpg" alt="Projet 3">
+            </div>
+            <div class="project-info">
+                <h3>Design Intérieur</h3>
+                <p>Design moderne pour une maison avec une attention particulière aux détails.</p>
+                <a href="#">Voir plus</a>
+            </div>
+        </div>
+
+        <!-- Project 4 (Carousel) -->
+        <div class="project-card renovation">
+            <div class="project-image">
+                <div class="carousel">
+                    <!-- Container des images du carousel -->
+                    <div class="carousel-images">
+                        <img src="../img/p4-1.jpg" alt="Projet 4 - Image 1">
+                        <img src="../img/p4-2.jpg" alt="Projet 4 - Image 2">
+                        <img src="../img/p4-3.jpg" alt="Projet 4 - Image 3">
+                    </div>
+        
+                    <!-- Boutons de navigation (Précédent et Suivant) -->
+                    <button class="prev">&lt;</button> <!-- Bouton précédent -->
+                    <button class="next">&gt;</button> <!-- Bouton suivant -->
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>Rénovation d'Appartement</h3>
+                <p>Transformation d'un appartement urbain avec un style minimaliste et chic.</p>
+                <a href="#">Voir plus</a>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 [Nom de l'Entreprise] | Tous droits réservés</p>
+        <ul>
+            <li><a href="legal.html">Mentions légales</a></li>
+            <li><a href="privacy.html">Politique de confidentialité</a></li>
+            <li><a href="https://facebook.com/[NomEntreprise]" target="_blank">Facebook</a></li>
+            <li><a href="https://linkedin.com/company/[NomEntreprise]" target="_blank">LinkedIn</a></li>
+        </ul>
+    </footer>
+
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
