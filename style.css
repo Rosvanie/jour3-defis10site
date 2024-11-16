@@ -377,8 +377,8 @@ nav ul li a:hover {
     }
 
     .hero-buttons a {
-        padding: 10px 20px; /* Ajustement des boutons */
-        font-size: 12px; /* Texte des boutons réduit */
+        padding: 8px 15px; /* Ajustement des boutons */
+        font-size: 10px; /* Texte des boutons réduit */
     }
 
     .hero {
