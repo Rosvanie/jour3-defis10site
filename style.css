@@ -377,14 +377,22 @@ nav ul li a:hover {
     }
 
     .hero-buttons a {
-        padding: 8px 15px; /* Ajustement des boutons */
-        font-size: 10px; /* Texte des boutons réduit */
+        padding: 10px 20px; /* Ajustement des boutons */
+        font-size: 12px; /* Texte des boutons réduit */
     }
 
     .hero {
         padding: 0 10px; /* Réduction des marges */
     }
 }
+
+@media (max-width: 358px){
+    .hero-buttons a{
+        font-size: 9px;
+    }
+}
+
+
 /* Animation de la section Hero */
 @keyframes fadeInUp {
     from {
